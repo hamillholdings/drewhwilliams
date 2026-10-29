@@ -62,7 +62,7 @@ export async function onRequestPost({ request, env }) {
       from: env.CONTACT_FROM,
       to: [env.CONTACT_TO],
       reply_to: email,
-      subject: `Website contact from ${subjectName}`,
+      subject: `New contact form message: ${subjectName}`,
       text: `Name: ${name}\nPhone: ${phone}\nEmail: ${email}\n\nMessage:\n${message}`,
     }),
   });
