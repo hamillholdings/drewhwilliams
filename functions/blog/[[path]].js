@@ -7,8 +7,8 @@
 const notFound = () =>
   new Response(
     '<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Not found — Drew Williams</title></head>' +
-      '<body style="margin:0;font-family:Inter,Arial,Helvetica,sans-serif;color:#263b33;text-align:center;padding:80px 20px">' +
-      '<h1 style="font-size:28px;margin:0 0 12px">That page isn\u2019t here</h1><p style="margin:0"><a href="/blog/" style="color:#5e7b51">Go to the blog</a></p></body></html>',
+      '<body style="margin:0;font-family:Inter,Arial,Helvetica,sans-serif;color:#1a1a1a;text-align:center;padding:80px 20px">' +
+      '<h1 style="font-size:28px;margin:0 0 12px">That page isn\u2019t here</h1><p style="margin:0"><a href="/blog/" style="color:#1a1a1a">Go to the blog</a></p></body></html>',
     { status: 404, headers: { "Content-Type": "text/html; charset=utf-8", "Cache-Control": "no-store" } },
   );
 
