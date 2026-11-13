@@ -5,6 +5,9 @@ The public asset directory is the project root. No build command or dependencies
 
 /directory/ is the social link directory.
 / forwards to /directory/ until a homepage is created.
+/blog/ is the blog. Its pages (blog/index.html, blog/<post>/index.html, blog/posts.json) are written
+by the Daily Publisher app; do not edit them by hand. functions/blog/[[path]].js hides a post until
+its publish time and keeps posts.json private. assets/headshot-672.jpg is the web-sized headshot.
 The contact form requires name, phone number, email, message, and Cloudflare Turnstile.
 
 Contact form setup
