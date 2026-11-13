@@ -1,1 +1,10 @@
-[]
+[
+ {
+  "id": "test-post-20261113",
+  "slug": "test-post-what-the-blog-looks-like",
+  "title": "Test post: what the blog looks like",
+  "summary": "A sample post so you can see the layout. It will be removed.",
+  "body": "This is a test post, published from Daily Publisher to show what the blog looks like. It will be removed.\n\nA second paragraph, to show spacing. Here is some **bold text**, some *italic text*, and [a link to my directory](https://drewhwilliams.com/directory/).\n\n## A heading inside the post\n\n- A list item\n- Another list item\n- A third\n\nA closing paragraph. A pasted link also works: https://youtube.com/@drew.hwilliams",
+  "at": "2026-11-13T17:09:48Z"
+ }
+]
