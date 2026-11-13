@@ -5,10 +5,12 @@
 // The pages themselves are written by the Daily Publisher app.
 
 const notFound = () =>
-  new Response("Not found", {
-    status: 404,
-    headers: { "Content-Type": "text/plain; charset=utf-8", "Cache-Control": "no-store" },
-  });
+  new Response(
+    '<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Not found — Drew Williams</title></head>' +
+      '<body style="margin:0;font-family:Inter,Arial,Helvetica,sans-serif;color:#263b33;text-align:center;padding:80px 20px">' +
+      '<h1 style="font-size:28px;margin:0 0 12px">That page isn\u2019t here</h1><p style="margin:0"><a href="/blog/" style="color:#5e7b51">Go to the blog</a></p></body></html>',
+    { status: 404, headers: { "Content-Type": "text/html; charset=utf-8", "Cache-Control": "no-store" } },
+  );
 
 export async function onRequest({ request, env }) {
   const url = new URL(request.url);
@@ -48,11 +50,12 @@ export async function onRequest({ request, env }) {
   } catch {
     posts = [];
   }
+  // Only current, already-published posts are served. Anything else under /blog/ is not found,
+  // so a removed post disappears immediately and a scheduled one stays hidden.
   const post = posts.find((p) => p.slug === parts[1]);
-  if (post && Date.parse(post.at) > now) return notFound();
+  if (!post || Date.parse(post.at) > now) return notFound();
 
   const page = await env.ASSETS.fetch(request);
-  if (!post) return page;
   const headers = new Headers(page.headers);
   headers.set("Cache-Control", "no-store");
   return new Response(page.body, { status: page.status, headers });
